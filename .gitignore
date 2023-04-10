@@ -6,3 +6,8 @@
 
 /loja-virtual-repository/.classpath
 /loja-virtual-repository/.project
+
+/loja/.settings
+/loja/.classpath
+/loja/.project
+/loja/target
