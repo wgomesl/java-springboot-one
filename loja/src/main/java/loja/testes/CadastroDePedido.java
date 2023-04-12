@@ -36,7 +36,11 @@ public class CadastroDePedido {
 		pedidoDao.Cadastrar(pedido);
 		
 		em.getTransaction().commit();
-	}
+		
+		BigDecimal totalVendido = pedidoDao.valorTotalVendido();
+		System.out.println("Valor total: " + totalVendido);
+		
+}
 	
 	private static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
