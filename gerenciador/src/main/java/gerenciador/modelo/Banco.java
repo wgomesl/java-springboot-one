@@ -1,4 +1,4 @@
-package gerenciador.servlet;
+package gerenciador.modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
