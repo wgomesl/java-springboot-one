@@ -1,4 +1,4 @@
-package gerenciador.servlet;
+package gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,25 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import gerenciador.modelo.Banco;
 import gerenciador.modelo.Empresa;
 
-/**
- * Servlet implementation class NovaEmpresaServlet
- */
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
-
-	//Agora este método só irá atender requisiçoes post (doPost)
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+public class NovaEmpresa {
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 		System.out.println("Cadastrando nova empresa");
 		
 		String nomeEmpresa = request.getParameter("nome");
@@ -49,11 +39,10 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		//redirecionamento feito pelo navegador
 		request.setAttribute("empresa", empresa.getNome());
-		response.sendRedirect("listaEmpresas");
+		response.sendRedirect("entrada?acao=ListaEmpresas");
 		
 		//chamar o JSP
 //		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");	
 //		rd.forward(request, response);
 	}
-
 }
