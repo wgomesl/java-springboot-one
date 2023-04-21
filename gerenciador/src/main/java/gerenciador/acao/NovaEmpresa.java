@@ -39,7 +39,7 @@ public class NovaEmpresa {
 		
 		//redirecionamento feito pelo navegador
 		request.setAttribute("empresa", empresa.getNome());
-		return "redirect:/entrada?acao=ListaEmpresas";
+		return "redirect:entrada?acao=ListaEmpresas";
 		
 		//chamar o JSP
 //		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");	

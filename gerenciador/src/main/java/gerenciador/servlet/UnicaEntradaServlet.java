@@ -13,6 +13,7 @@ import gerenciador.acao.AlteraEmpresa;
 import gerenciador.acao.ListaEmpresas;
 import gerenciador.acao.MostraEmpresa;
 import gerenciador.acao.NovaEmpresa;
+import gerenciador.acao.NovaEmpresaForm;
 import gerenciador.acao.RemoveEmpresa;
 
 @WebServlet("/entrada")
@@ -43,12 +44,15 @@ public class UnicaEntradaServlet extends HttpServlet {
 		}else if(paramAcao.equals("NovaEmpresa")) {
 			NovaEmpresa acao = new NovaEmpresa();
 			nome = acao.executa(request, response);
+		}else if(paramAcao.equals("NovaEmpresaForm")) {
+			NovaEmpresaForm acao = new NovaEmpresaForm();
+			nome = acao.executa(request, response);
 		}
 		
 		String[] tipoAndEndereco = nome.split(":");
 		
 		if(tipoAndEndereco[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher(tipoAndEndereco[1]);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoAndEndereco[1]);
 			rd.forward(request, response);
 		}else {
 			response.sendRedirect(tipoAndEndereco[1]);
